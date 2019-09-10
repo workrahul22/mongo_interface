@@ -3,7 +3,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 
 const app = express();
-app.use(logger(dev));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
@@ -11,3 +11,5 @@ app.use(cookieParser());
 const getDatabases = require("./getDatabases");
 
 app.post('/db', getDatabases);
+
+app.listen(8000);

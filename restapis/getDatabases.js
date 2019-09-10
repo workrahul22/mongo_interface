@@ -1,15 +1,4 @@
-const MongoClient = require("mongodb").MongoClient;
-
-const connectInterface = (url="mongodb://localhost:27017", dbObject = {}) => {
-	try{
-		MongoClient.connect(url,(err,client)=>{
-			if(err) return Promise.reject({status:"error",message:"Error Connecting Database"});
-			return Promise.resolve(client.db("test"));
-		});
-	} catch(err){
-		return Promise.reject({status:"error", message: "Something went wrong", err:err});
-	}
-}
+const connectInterface = require('./helpers/connectInterface.js');
 
 const getDb = async(url, dbObject) => {
 	try{
